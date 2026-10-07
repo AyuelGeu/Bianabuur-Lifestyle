@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f2e9">
+    <meta name="description" content="A story from the Bianabuur Lifestyle journal: personal style, beauty, slow living, and little escapes.">
+    <title>From the Journal | Bianabuur Lifestyle</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+    <style>
+      :root { color-scheme: light; --ink: #1d2923; --muted: #637067; --paper: #f5f2e9; --white: #fffdf8; --green: #194b3c; --lime: #d5ef67; --coral: #e27c61; --line: #dcded2; --serif: "Playfair Display", Georgia, serif; --sans: "DM Sans", sans-serif; }
+      *, *::before, *::after { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); }
+      a { color: inherit; text-decoration: none; }
+      img { display: block; width: 100%; object-fit: cover; }
+      .shell { width: min(1180px, calc(100% - 64px)); margin-inline: auto; }
+      .announcement { min-height: 36px; display: grid; place-items: center; background: var(--green); color: #f8f6ed; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; }
+      .announcement a { margin-left: 7px; border-bottom: 1px solid #f8f6ed80; }
+      .site-header { border-bottom: 1px solid var(--line); }
+      .header-row { height: 84px; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+      .brand { font: 500 25px/1 var(--serif); white-space: nowrap; }
+      .brand span { display: block; margin-top: 6px; font: 600 8px var(--sans); letter-spacing: .2em; text-transform: uppercase; text-align: center; }
+      .main-nav { display: flex; align-items: center; gap: 34px; }
+      .main-nav a, .social-link { font-size: 11px; font-weight: 600; }
+      .main-nav a:hover, .social-link:hover { color: var(--coral); }
+      .header-social { display: flex; align-items: center; gap: 16px; }
+      .menu-toggle { display: none; border: 0; padding: 8px; background: none; color: var(--ink); font: inherit; font-size: 20px; cursor: pointer; }
+      .article-shell { width: min(820px, calc(100% - 48px)); margin-inline: auto; }
+      .article-head { padding: 61px 0 34px; text-align: center; }
+      .eyebrow { display: flex; align-items: center; justify-content: center; gap: 10px; color: var(--green); font-size: 10px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; }
+      .eyebrow::before { width: 25px; height: 1px; background: var(--coral); content: ""; }
+      h1, h2, p { margin-top: 0; }
+      h1 { max-width: 780px; margin: 18px auto 15px; font: 500 clamp(43px, 7vw, 70px)/1.05 var(--serif); }
+      .dek { max-width: 590px; margin: 0 auto 17px; color: var(--muted); font-size: 14px; line-height: 1.8; }
+      .date { color: var(--muted); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; }
+      .cover { height: clamp(280px, 48vw, 540px); background: #e3e3d7; }
+      .cover img { height: 100%; }
+      .article-body { max-width: 660px; margin: 0 auto; padding: 44px 0 33px; }
+      .article-body p { margin-bottom: 22px; color: #3f4b43; font: 16px/1.95 var(--serif); }
+      .article-body p:first-child::first-letter { float: left; margin: 7px 9px 0 0; color: var(--green); font: 500 54px/.8 var(--serif); }
+      .article-footer { display: flex; justify-content: space-between; gap: 20px; padding: 23px 0 70px; border-top: 1px solid var(--line); }
+      .text-link { padding-bottom: 5px; border-bottom: 1px solid var(--green); color: var(--green); font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+      .not-found { min-height: 55vh; display: grid; place-content: center; justify-items: center; padding: 50px 20px; text-align: center; }
+      .not-found h1 { font-size: 48px; }
+      .not-found p { color: var(--muted); }
+      footer { padding: 26px 0; border-top: 1px solid var(--line); color: var(--muted); font-size: 10px; }
+      .footer-row { display: flex; justify-content: space-between; gap: 16px; }
+      @media (max-width: 800px) {
+        .shell { width: min(100% - 42px, 650px); }
+        .header-row { height: 72px; }
+        .header-social { display: none; }
+        .main-nav { gap: 22px; }
+      }
+      @media (max-width: 580px) {
+        .shell { width: calc(100% - 36px); }
+        .announcement { font-size: 8px; }
+        .header-row { height: 66px; }
+        .brand { font-size: 22px; }
+        .menu-toggle { display: block; }
+        .main-nav { position: absolute; top: 100%; right: 0; left: 0; z-index: 2; display: none; flex-direction: column; align-items: stretch; gap: 0; padding: 8px 18px 16px; border-bottom: 1px solid var(--line); background: var(--paper); }
+        .main-nav.open { display: flex; }
+        .main-nav a { padding: 13px 0; border-top: 1px solid var(--line); }
+        .article-shell { width: calc(100% - 36px); }
+        .article-head { padding-top: 45px; }
+        .article-body { padding-top: 31px; }
+        .article-body p { font-size: 15px; }
+        .article-footer, .footer-row { flex-direction: column; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="announcement">New here? A little note from me to you <a href="index.html#about">Meet Biana</a></div>
+    <header class="site-header">
+      <div class="shell header-row">
+        <a class="brand" href="index.html" aria-label="Bianabuur Lifestyle home">bianabuur<span>lifestyle journal</span></a>
+        <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false">☰</button>
+        <nav class="main-nav" aria-label="Main navigation">
+          <a href="journal.html">The journal</a>
+          <a href="index.html#about">About Biana</a>
+          <a href="index.html#social">Find me online</a>
+          <a href="index.html#contact">Say hello</a>
+        </nav>
+        <div class="header-social" aria-label="Social media">
+          <a class="social-link" href="https://www.instagram.com/">IG</a>
+          <a class="social-link" href="https://www.tiktok.com/">TT</a>
+          <a class="social-link" href="https://www.youtube.com/">YT</a>
+        </div>
+      </div>
+    </header>
+    <main id="story-content" aria-live="polite">
+      <noscript><p class="article-shell">This story needs JavaScript to load. <a href="journal.html">Browse the journal instead.</a></p></noscript>
+    </main>
+    <footer>
+      <div class="shell footer-row"><span>© 2026 Bianabuur Lifestyle</span><span>Everyday life, with a little more feeling.</span></div>
+    </footer>
+    <script>
+      const stories = {
+        "pieces-on-repeat": {
+          title: "The pieces I reach for on repeat",
+          category: "Personal style",
+          date: "September 21, 2026",
+          isoDate: "2026-09-21",
+          dek: "A small, hardworking wardrobe and the outfits that make getting dressed feel easy.",
+          image: "https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1400&q=85",
+          alt: "A friend browsing a rail of colorful clothes",
+          paragraphs: [
+            "The clothes I love most are rarely the ones I save for a special occasion. They are the soft shirt that works tucked or loose, the trousers that feel like pajamas but look pulled together, and the jacket I always grab on the way out.",
+            "Lately, I have been paying attention to what actually earns its place in my week. A simple color palette makes mixing things easy, while one playful detail—a bright bag, an interesting earring, a great shoe—keeps it from feeling too predictable.",
+            "I am learning that a useful wardrobe is not about having the perfect list of essentials. It is about knowing yourself well enough to keep the things you reach for, and letting the rest go. Getting dressed can be a small pleasure, not another decision to get through."
+          ]
+        },
+        "sunday-reset": {
+          title: "A slower, softer Sunday reset",
+          category: "Beauty",
+          date: "September 14, 2026",
+          isoDate: "2026-09-14",
+          dek: "The no-fuss little rituals that help me feel like myself again by Monday.",
+          image: "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=1400&q=85",
+          alt: "A simple skincare ritual with botanical products",
+          paragraphs: [
+            "My favorite Sunday reset is less of a checklist and more of a gentle exhale. I clear the bathroom counter, put on a playlist, and take a little time with the routine I usually rush through.",
+            "A warm washcloth, a cleanser that leaves my skin comfortable, and a moisturizer I genuinely enjoy using are enough. I like to keep it simple and give each step a moment, rather than treating self-care like another project to optimize.",
+            "The best part is how small it is. A few quiet minutes can make the start of the week feel a bit more grounded. No dramatic before-and-after, just a softer landing into Monday."
+          ]
+        },
+        "weekend-by-the-sea": {
+          title: "Notes from a long weekend by the sea",
+          category: "Little escapes",
+          date: "September 2, 2026",
+          isoDate: "2026-09-02",
+          dek: "Salt in my hair, nowhere to be, and a few lovely spots worth remembering.",
+          image: "https://images.unsplash.com/photo-1473116763249-2faaef81ccda?auto=format&fit=crop&w=1400&q=85",
+          alt: "A sunlit coastal road winding above the sea",
+          paragraphs: [
+            "A good weekend away does not need a packed itinerary. This one started with an open window, a long drive, and the kind of view that makes everyone in the car go quiet for a minute.",
+            "We took the scenic route, stopped when something caught our eye, and let lunch turn into an unhurried afternoon. By the water, time seemed to stretch out. I came home with a few photos, sandy shoes, and a head full of blue.",
+            "I am keeping the reminder that a little escape can be close by. Sometimes a change of pace is all the distance you need."
+          ]
+        },
+        "ordinary-day": {
+          title: "The joy of making an ordinary day special",
+          category: "Slow living",
+          date: "August 26, 2026",
+          isoDate: "2026-08-26",
+          dek: "Fresh flowers, a favorite playlist, and permission to make a fuss over Tuesday.",
+          image: "https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=1400&q=85",
+          alt: "Fresh flowers bringing color to a home",
+          paragraphs: [
+            "For a long time, I thought the pretty candle and the good dishes were for company. Then one Tuesday, I put flowers on the table just because I wanted to look at them while I had lunch.",
+            "It was such a small thing, but it changed the feeling of the afternoon. A favorite playlist, a proper cup of tea, a walk around the block before the light faded—none of it was extraordinary, and that was the point.",
+            "We do not have to wait for a milestone to make a day feel cared for. Ordinary life is most of life. I want to be here for it."
+          ]
+        },
+        "dressing-for-me": {
+          title: "Getting dressed for me, not the algorithm",
+          category: "Personal style",
+          date: "August 18, 2026",
+          isoDate: "2026-08-18",
+          dek: "On wearing what feels good and letting the rest of the rules go.",
+          image: "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=1400&q=85",
+          alt: "A woman in a bright outfit walking through the city",
+          paragraphs: [
+            "It is easy to get caught up in what is trending, what is flattering, or what the internet has decided we should all own this season. I have been trying to ask a simpler question: do I feel like myself in this?",
+            "Sometimes the answer is a familiar outfit I have worn a hundred times. Sometimes it is a color I usually pass over or a combination I would not have tried a year ago. Either way, the best feedback is how I feel when I step out the door.",
+            "Personal style is allowed to be personal. I am keeping the pieces that make me smile and leaving room to change my mind."
+          ]
+        },
+        "beauty-bag": {
+          title: "What's in my everyday beauty bag",
+          category: "Beauty",
+          date: "August 10, 2026",
+          isoDate: "2026-08-10",
+          dek: "The tried-and-true favorites that earn their place on my bathroom shelf.",
+          image: "https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=1400&q=85",
+          alt: "A colorful collection of everyday makeup essentials",
+          paragraphs: [
+            "My everyday beauty bag is a small edit, not a collection of every product I have ever wanted to try. I like having a few dependable things that are easy to use and make me feel a little more put together.",
+            "There is a comfortable base, a touch of color, something for brows, and a lip product I can apply without a mirror. The exact picks change, but the idea stays the same: practical, enjoyable, and no complicated routine required.",
+            "I have learned to finish what I love before adding something new. It keeps the shelf calmer and makes getting ready feel like a familiar ritual instead of a shopping list."
+          ]
+        }
+      };
+
+      const content = document.querySelector("#story-content");
+      const story = stories[new URLSearchParams(window.location.search).get("post")];
+
+      if (!story) {
+        document.title = "Story not found | Bianabuur Lifestyle";
+        const message = document.createElement("section");
+        message.className = "not-found";
+        message.innerHTML = '<h1>Story not found</h1><p>That journal entry may have moved.</p><a class="text-link" href="journal.html">Browse all stories ↗</a>';
+        content.append(message);
+      } else {
+        document.title = `${story.title} | Bianabuur Lifestyle`;
+        const article = document.createElement("article");
+        article.innerHTML = `
+          <header class="article-head article-shell">
+            <div class="eyebrow">${story.category}</div>
+            <h1>${story.title}</h1>
+            <p class="dek">${story.dek}</p>
+            <time class="date" datetime="${story.isoDate}">${story.date}</time>
+          </header>
+          <figure class="cover shell"><img src="${story.image}" alt="${story.alt}" fetchpriority="high"></figure>
+          <div class="article-body article-shell"></div>
+          <nav class="article-footer article-shell" aria-label="Story navigation">
+            <a class="text-link" href="journal.html">← All stories</a>
+            <a class="text-link" href="index.html#contact">Stay in touch ↗</a>
+          </nav>
+        `;
+        const paragraphs = article.querySelector(".article-body");
+        story.paragraphs.forEach((text) => {
+          const paragraph = document.createElement("p");
+          paragraph.textContent = text;
+          paragraphs.append(paragraph);
+        });
+        content.append(article);
+      }
+
+      const menuToggle = document.querySelector(".menu-toggle");
+      const nav = document.querySelector(".main-nav");
+      menuToggle.addEventListener("click", () => {
+        const isOpen = nav.classList.toggle("open");
+        menuToggle.setAttribute("aria-expanded", String(isOpen));
+        menuToggle.setAttribute("aria-label", isOpen ? "Close navigation" : "Open navigation");
+        menuToggle.textContent = isOpen ? "×" : "☰";
+      });
+    </script>
+  </body>
+</html>

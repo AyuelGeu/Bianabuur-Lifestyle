@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f2e9">
+    <meta name="description" content="Bianabuur Lifestyle is a personal journal of everyday style, beauty rituals, travel, and living well, wherever you find us.">
+    <title>Bianabuur Lifestyle | Notes on living well</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #1d2923;
+        --muted: #637067;
+        --paper: #f5f2e9;
+        --white: #fffdf8;
+        --green: #194b3c;
+        --lime: #d5ef67;
+        --coral: #e27c61;
+        --line: #dcded2;
+        --serif: "Playfair Display", Georgia, serif;
+        --sans: "DM Sans", sans-serif;
+      }
+
+      *, *::before, *::after { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); }
+      a { color: inherit; text-decoration: none; }
+      button, input { font: inherit; }
+      button, a { -webkit-tap-highlight-color: transparent; }
+      img { display: block; width: 100%; object-fit: cover; }
+      .shell { width: min(1180px, calc(100% - 64px)); margin-inline: auto; }
+
+      .announcement { min-height: 36px; display: grid; place-items: center; background: var(--green); color: #f8f6ed; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; }
+      .announcement a { border-bottom: 1px solid #f8f6ed80; margin-left: 7px; }
+      .site-header { position: relative; z-index: 3; border-bottom: 1px solid var(--line); }
+      .header-row { height: 84px; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+      .brand { font-family: var(--serif); font-size: 25px; line-height: 1; letter-spacing: 0; white-space: nowrap; }
+      .brand span { display: block; margin-top: 6px; font: 600 8px var(--sans); letter-spacing: .2em; text-transform: uppercase; text-align: center; }
+      .main-nav { display: flex; align-items: center; gap: 34px; }
+      .main-nav a, .social-link { font-size: 11px; font-weight: 600; }
+      .main-nav a { transition: color .2s ease; }
+      .main-nav a:hover, .social-link:hover { color: var(--coral); }
+      .header-social { display: flex; gap: 16px; align-items: center; }
+      .menu-toggle { display: none; border: 0; padding: 8px; background: none; color: var(--ink); font-size: 20px; cursor: pointer; }
+
+      .hero { min-height: 570px; display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 48px; padding-block: 54px 68px; }
+      .hero-copy { position: relative; z-index: 1; padding-left: 5.5%; }
+      .eyebrow { display: flex; align-items: center; gap: 10px; color: var(--green); font-size: 10px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; }
+      .eyebrow::before { width: 25px; height: 1px; background: var(--coral); content: ""; }
+      h1, h2, h3, p { margin-top: 0; }
+      .hero h1 { max-width: 520px; margin: 20px 0 18px; font: 500 clamp(54px, 6vw, 80px)/.99 var(--serif); letter-spacing: 0; }
+      .hero h1 em { color: var(--green); font-weight: 500; }
+      .hero-copy > p { max-width: 390px; margin-bottom: 27px; color: var(--muted); font-size: 14px; line-height: 1.85; }
+      .button { min-height: 47px; display: inline-flex; align-items: center; justify-content: center; gap: 18px; padding: 0 20px; background: var(--green); color: white; font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; transition: background .2s ease, transform .2s ease; }
+      .button:hover { background: #28644f; transform: translateY(-2px); }
+      .button .arrow { font-size: 16px; line-height: 1; }
+      .hero-image-wrap { position: relative; height: 454px; margin-right: 5%; }
+      .hero-image-wrap img { height: 100%; object-position: center 42%; }
+      .image-label { position: absolute; right: -19px; bottom: 24px; display: grid; width: 102px; height: 102px; place-content: center; border-radius: 50%; background: var(--lime); color: var(--ink); text-align: center; transform: rotate(9deg); }
+      .image-label span { font: 500 22px/1.05 var(--serif); }
+      .image-label small { margin-top: 5px; font-size: 8px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+
+      .ticker { overflow: hidden; border-block: 1px solid var(--line); background: var(--white); }
+      .ticker-track { min-height: 55px; display: flex; align-items: center; justify-content: space-around; gap: 30px; white-space: nowrap; }
+      .ticker span { color: var(--green); font: italic 16px var(--serif); }
+      .ticker b { color: var(--coral); font: 400 11px var(--sans); }
+
+      .section { padding-block: 92px; }
+      .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 29px; }
+      .section-heading .eyebrow { margin-bottom: 12px; }
+      .section-heading h2 { margin: 0; font: 500 42px/1.1 var(--serif); letter-spacing: 0; }
+      .text-link { padding-bottom: 5px; border-bottom: 1px solid var(--green); color: var(--green); font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; white-space: nowrap; }
+      .filter-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 29px; }
+      .filter-button { min-height: 34px; padding: 0 14px; border: 1px solid var(--line); border-radius: 99px; background: transparent; color: var(--muted); font-size: 10px; font-weight: 600; cursor: pointer; transition: all .2s ease; }
+      .filter-button[aria-pressed="true"], .filter-button:hover { border-color: var(--green); background: var(--green); color: white; }
+      .post-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
+      .post-card { min-width: 0; animation: appear .45s ease both; }
+      .post-card[hidden] { display: none; }
+      .post-image { overflow: hidden; aspect-ratio: 1.15; background: #e3e3d7; }
+      .post-image img { height: 100%; transition: transform .5s ease; }
+      .post-card:hover .post-image img { transform: scale(1.04); }
+      .post-meta { display: flex; justify-content: space-between; gap: 12px; margin: 17px 0 9px; color: var(--green); font-size: 9px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+      .post-meta time { color: var(--muted); font-weight: 500; letter-spacing: .04em; }
+      .post-card h3 { margin: 0 0 9px; font: 500 24px/1.18 var(--serif); letter-spacing: 0; }
+      .post-card > p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.7; }
+
+      .about-band { background: var(--green); color: var(--white); }
+      .about-inner { min-height: 450px; display: grid; grid-template-columns: .85fr 1.15fr; align-items: center; gap: 9%; padding-block: 70px; }
+      .about-photo { position: relative; height: 318px; }
+      .about-photo img { height: 100%; object-position: 50% 38%; }
+      .about-photo::after { position: absolute; inset: 12px -12px -12px 12px; z-index: 0; border: 1px solid #ffffff70; content: ""; pointer-events: none; }
+      .about-photo img { position: relative; z-index: 1; }
+      .about-copy .eyebrow { color: var(--lime); }
+      .about-copy h2 { max-width: 470px; margin: 18px 0; font: 500 46px/1.08 var(--serif); letter-spacing: 0; }
+      .about-copy h2 em { color: var(--lime); }
+      .about-copy p { max-width: 510px; color: #e1e9e2; font-size: 13px; line-height: 1.9; }
+      .about-copy .button { margin-top: 5px; background: var(--lime); color: var(--ink); }
+      .about-copy .button:hover { background: #e3f78f; }
+
+      .platform-section { padding-block: 77px; text-align: center; }
+      .platform-section .eyebrow { justify-content: center; }
+      .platform-section h2 { margin: 14px 0 10px; font: 500 39px/1.15 var(--serif); letter-spacing: 0; }
+      .platform-section > .shell > p { max-width: 480px; margin: 0 auto; color: var(--muted); font-size: 12px; line-height: 1.7; }
+      .platform-links { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 37px; border-block: 1px solid var(--line); }
+      .platform-link { display: flex; align-items: center; justify-content: center; gap: 11px; min-height: 83px; border-right: 1px solid var(--line); font: 500 18px var(--serif); transition: background .2s ease; }
+      .platform-link:last-child { border: 0; }
+      .platform-link:hover { background: #e9edda; }
+      .platform-link span { color: var(--coral); font: 600 9px var(--sans); }
+
+      .newsletter { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 30px; padding: 37px 5%; background: var(--lime); }
+      .newsletter h2 { margin: 0 0 5px; font: 500 29px var(--serif); letter-spacing: 0; }
+      .newsletter p { margin: 0; color: #405044; font-size: 11px; }
+      .newsletter form { display: flex; width: min(400px, 100%); border-bottom: 1px solid var(--ink); }
+      .newsletter input { flex: 1; min-width: 0; border: 0; outline: 0; background: transparent; color: var(--ink); font-size: 11px; }
+      .newsletter input::placeholder { color: #536253; }
+      .newsletter button { min-height: 44px; border: 0; background: transparent; color: var(--ink); font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; cursor: pointer; }
+
+      footer { margin-top: 80px; padding: 35px 0 22px; border-top: 1px solid var(--line); }
+      .footer-main { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+      .footer-main > p { margin: 0; color: var(--muted); font-size: 10px; }
+      .footer-social { display: flex; gap: 18px; }
+      .footer-bottom { display: flex; justify-content: space-between; gap: 20px; margin-top: 26px; padding-top: 15px; border-top: 1px solid var(--line); color: var(--muted); font-size: 9px; }
+      .toast { position: fixed; right: 20px; bottom: 20px; z-index: 5; max-width: calc(100% - 40px); padding: 14px 18px; background: var(--green); color: white; font-size: 12px; box-shadow: 0 8px 30px #1d292330; opacity: 0; transform: translateY(10px); pointer-events: none; transition: .25s ease; }
+      .toast.show { opacity: 1; transform: translateY(0); }
+      @keyframes appear { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+      @media (max-width: 800px) {
+        .shell { width: min(100% - 42px, 650px); }
+        .header-row { height: 72px; }
+        .header-social { display: none; }
+        .main-nav { gap: 22px; }
+        .hero { min-height: auto; gap: 25px; padding-block: 43px 52px; }
+        .hero-copy { padding-left: 0; }
+        .hero h1 { font-size: clamp(48px, 8vw, 65px); }
+        .hero-image-wrap { height: 380px; margin-right: 8px; }
+        .section { padding-block: 72px; }
+        .post-grid { grid-template-columns: repeat(2, 1fr); row-gap: 30px; }
+        .about-inner { gap: 7%; }
+        .about-copy h2 { font-size: 39px; }
+        .newsletter { padding-inline: 25px; }
+      }
+      @media (max-width: 580px) {
+        .shell { width: calc(100% - 36px); }
+        .announcement { font-size: 8px; }
+        .header-row { height: 66px; }
+        .brand { font-size: 22px; }
+        .menu-toggle { display: block; }
+        .main-nav { position: absolute; top: 100%; right: 0; left: 0; display: none; flex-direction: column; align-items: stretch; gap: 0; padding: 8px 18px 16px; border-bottom: 1px solid var(--line); background: var(--paper); }
+        .main-nav.open { display: flex; }
+        .main-nav a { padding: 13px 0; border-top: 1px solid var(--line); }
+        .hero { grid-template-columns: 1fr; gap: 30px; padding-block: 42px 40px; }
+        .hero h1 { max-width: 430px; font-size: clamp(55px, 14vw, 72px); }
+        .hero-copy > p { max-width: 340px; }
+        .hero-image-wrap { height: min(105vw, 410px); margin: 0 12px 0 0; }
+        .image-label { right: -13px; width: 90px; height: 90px; }
+        .ticker-track { justify-content: flex-start; min-height: 49px; gap: 23px; padding-inline: 18px; }
+        .ticker-track span:nth-of-type(n+4), .ticker-track b:nth-of-type(n+4) { display: none; }
+        .section { padding-block: 59px; }
+        .section-heading { align-items: start; flex-direction: column; gap: 14px; }
+        .section-heading h2 { font-size: 36px; }
+        .filter-row { gap: 6px; }
+        .filter-button { padding-inline: 11px; }
+        .post-grid { grid-template-columns: 1fr; gap: 29px; }
+        .post-image { aspect-ratio: 1.28; }
+        .post-card h3 { font-size: 25px; }
+        .about-inner { grid-template-columns: 1fr; gap: 34px; padding-block: 55px; }
+        .about-photo { height: 300px; margin-right: 12px; }
+        .about-copy h2 { font-size: 39px; }
+        .platform-section { padding-block: 58px; }
+        .platform-section h2 { font-size: 33px; }
+        .platform-links { grid-template-columns: repeat(2, 1fr); }
+        .platform-link { min-height: 65px; border-bottom: 1px solid var(--line); }
+        .platform-link:nth-child(2) { border-right: 0; }
+        .platform-link:nth-child(3), .platform-link:nth-child(4) { border-bottom: 0; }
+        .newsletter { grid-template-columns: 1fr; gap: 20px; padding: 27px 21px; }
+        .newsletter h2 { font-size: 26px; }
+        footer { margin-top: 58px; }
+        .footer-main { align-items: flex-start; flex-direction: column; }
+        .footer-bottom { flex-direction: column; gap: 8px; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="announcement">New here? A little note from me to you <a href="#about">Meet Biana</a></div>
+    <header class="site-header">
+      <div class="shell header-row">
+        <a class="brand" href="#home" aria-label="Bianabuur Lifestyle home">bianabuur<span>lifestyle journal</span></a>
+        <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false">☰</button>
+        <nav class="main-nav" aria-label="Main navigation">
+          <a href="#stories">The journal</a>
+          <a href="#about">About Biana</a>
+          <a href="#social">Find me online</a>
+          <a href="#contact">Say hello</a>
+        </nav>
+        <div class="header-social" aria-label="Social media">
+          <a class="social-link" href="https://www.instagram.com/">IG</a>
+          <a class="social-link" href="https://www.tiktok.com/">TT</a>
+          <a class="social-link" href="https://www.youtube.com/">YT</a>
+        </div>
+      </div>
+    </header>
+
+    <main id="home">
+      <section class="hero shell" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <div class="eyebrow">A little life, well lived</div>
+          <h1 id="hero-title">Making room for the <em>good things.</em></h1>
+          <p>Personal style, honest beauty, little escapes and everyday rituals. A journal for finding more joy in the life you already have.</p>
+          <a class="button" href="#stories">Come on in <span class="arrow" aria-hidden="true">↗</span></a>
+        </div>
+        <div class="hero-image-wrap">
+          <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1200&q=85" alt="A woman enjoying a quiet moment outdoors" fetchpriority="high">
+          <div class="image-label"><span>Live<br>lightly</span><small>since day one</small></div>
+        </div>
+      </section>
+
+      <div class="ticker" aria-label="Topics: personal style, beauty, slow living, and little escapes">
+        <div class="ticker-track"><span>Personal style</span><b>✳</b><span>Beauty, honestly</span><b>✳</b><span>Slow living</span><b>✳</b><span>Little escapes</span><b>✳</b><span>Everyday joy</span></div>
+      </div>
+
+      <section class="section shell" id="stories" aria-labelledby="stories-title">
+        <div class="section-heading">
+          <div><div class="eyebrow">From the journal</div><h2 id="stories-title">A few recent favorites</h2></div>
+          <a class="text-link" href="#social">More where this came from <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="filter-row" role="group" aria-label="Filter journal stories">
+          <button class="filter-button" type="button" data-filter="all" aria-pressed="true">Everything</button>
+          <button class="filter-button" type="button" data-filter="style" aria-pressed="false">Personal style</button>
+          <button class="filter-button" type="button" data-filter="beauty" aria-pressed="false">Beauty</button>
+          <button class="filter-button" type="button" data-filter="living" aria-pressed="false">Slow living</button>
+          <button class="filter-button" type="button" data-filter="travel" aria-pressed="false">Little escapes</button>
+        </div>
+        <div class="post-grid">
+          <article class="post-card" data-category="style">
+            <a href="#contact" aria-label="Read: The pieces I reach for on repeat">
+              <div class="post-image"><img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=900&q=80" alt="A friend browsing a rail of colorful clothes" loading="lazy"></div>
+              <div class="post-meta"><span>Personal style</span><time datetime="2026-09-21">September 21</time></div>
+              <h3>The pieces I reach for on repeat</h3>
+              <p>A small, hardworking wardrobe and the outfits that make getting dressed feel easy.</p>
+            </a>
+          </article>
+          <article class="post-card" data-category="beauty">
+            <a href="#contact" aria-label="Read: A slower, softer Sunday reset">
+              <div class="post-image"><img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=900&q=80" alt="A simple skincare ritual with botanical products" loading="lazy"></div>
+              <div class="post-meta"><span>Beauty</span><time datetime="2026-09-14">September 14</time></div>
+              <h3>A slower, softer Sunday reset</h3>
+              <p>The no-fuss little rituals that help me feel like myself again by Monday.</p>
+            </a>
+          </article>
+          <article class="post-card" data-category="travel">
+            <a href="#contact" aria-label="Read: Notes from a long weekend by the sea">
+              <div class="post-image"><img src="https://images.unsplash.com/photo-1473116763249-2faaef81ccda?auto=format&fit=crop&w=900&q=80" alt="A sunlit coastal road winding above the sea" loading="lazy"></div>
+              <div class="post-meta"><span>Little escapes</span><time datetime="2026-09-02">September 2</time></div>
+              <h3>Notes from a long weekend by the sea</h3>
+              <p>Salt in my hair, nowhere to be, and a few lovely spots worth remembering.</p>
+            </a>
+          </article>
+          <article class="post-card" data-category="living">
+            <a href="#contact" aria-label="Read: The joy of making an ordinary day special">
+              <div class="post-image"><img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=900&q=80" alt="Fresh flowers bringing color to a home" loading="lazy"></div>
+              <div class="post-meta"><span>Slow living</span><time datetime="2026-08-26">August 26</time></div>
+              <h3>The joy of making an ordinary day special</h3>
+              <p>Fresh flowers, a favorite playlist, and permission to make a fuss over Tuesday.</p>
+            </a>
+          </article>
+          <article class="post-card" data-category="style">
+            <a href="#contact" aria-label="Read: Getting dressed for me, not the algorithm">
+              <div class="post-image"><img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=900&q=80" alt="A woman in a bright outfit walking through the city" loading="lazy"></div>
+              <div class="post-meta"><span>Personal style</span><time datetime="2026-08-18">August 18</time></div>
+              <h3>Getting dressed for me, not the algorithm</h3>
+              <p>On wearing what feels good and letting the rest of the rules go.</p>
+            </a>
+          </article>
+          <article class="post-card" data-category="beauty">
+            <a href="#contact" aria-label="Read: What's in my everyday beauty bag">
+              <div class="post-image"><img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=900&q=80" alt="A colorful collection of everyday makeup essentials" loading="lazy"></div>
+              <div class="post-meta"><span>Beauty</span><time datetime="2026-08-10">August 10</time></div>
+              <h3>What's in my everyday beauty bag</h3>
+              <p>The tried-and-true favorites that earn their place on my bathroom shelf.</p>
+            </a>
+          </article>
+        </div>
+      </section>
+
+      <section class="about-band" id="about" aria-labelledby="about-title">
+        <div class="shell about-inner">
+          <div class="about-photo"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=900&q=85" alt="Biana, your guide to the Bianabuur Lifestyle journal" loading="lazy"></div>
+          <div class="about-copy">
+            <div class="eyebrow">The person behind the posts</div>
+            <h2 id="about-title">Hi, I'm Biana. <em>So glad you're here.</em></h2>
+            <p>This is my corner for sharing the outfits, places, beauty finds and small moments that make a life feel like your own. Some days it is a new lipstick; some days it is a slower morning. Around here, both count.</p>
+            <p>I'm a lifestyle creator who believes you don't need a special occasion to enjoy the good things. Pull up a chair; there's always room for one more.</p>
+            <a class="button" href="#contact">Let's say hello <span class="arrow" aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </section>
+
+      <section class="platform-section" id="social" aria-labelledby="social-title">
+        <div class="shell">
+          <div class="eyebrow">A little more Biana</div>
+          <h2 id="social-title">Let's be friends, everywhere.</h2>
+          <p>Come find the daily outfits, behind-the-scenes bits and little videos between journal entries.</p>
+          <div class="platform-links">
+            <a class="platform-link" href="https://www.instagram.com/" target="_blank" rel="noreferrer">Instagram <span>PHOTO DIARY ↗</span></a>
+            <a class="platform-link" href="https://www.tiktok.com/" target="_blank" rel="noreferrer">TikTok <span>LITTLE MOMENTS ↗</span></a>
+            <a class="platform-link" href="https://www.youtube.com/" target="_blank" rel="noreferrer">YouTube <span>LONGER STORIES ↗</span></a>
+            <a class="platform-link" href="https://www.pinterest.com/" target="_blank" rel="noreferrer">Pinterest <span>MOODBOARDS ↗</span></a>
+          </div>
+        </div>
+      </section>
+
+      <section class="shell" id="contact" aria-label="Stay in touch">
+        <div class="newsletter">
+          <div><h2>A little note now and then.</h2><p>Good finds, fresh stories, and a reason to slow down in your inbox.</p></div>
+          <form id="newsletter-form">
+            <input type="email" name="email" placeholder="Your email address" aria-label="Your email address" required>
+            <button type="submit">Count me in ↗</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="shell">
+      <div class="footer-main">
+        <a class="brand" href="#home">bianabuur<span>lifestyle journal</span></a>
+        <p>Everyday life, with a little more feeling.</p>
+        <div class="footer-social">
+          <a class="social-link" href="https://www.instagram.com/" target="_blank" rel="noreferrer">Instagram ↗</a>
+          <a class="social-link" href="https://www.tiktok.com/" target="_blank" rel="noreferrer">TikTok ↗</a>
+          <a class="social-link" href="https://www.youtube.com/" target="_blank" rel="noreferrer">YouTube ↗</a>
+        </div>
+      </div>
+      <div class="footer-bottom"><span>© 2026 Bianabuur Lifestyle</span><span>Made with care, and a cup of something nice.</span></div>
+    </footer>
+    <div class="toast" role="status" aria-live="polite"></div>
+
+    <script>
+      const filters = document.querySelectorAll(".filter-button");
+      const posts = document.querySelectorAll(".post-card");
+      const toast = document.querySelector(".toast");
+      const menuToggle = document.querySelector(".menu-toggle");
+      const nav = document.querySelector(".main-nav");
+
+      filters.forEach((button) => {
+        button.addEventListener("click", () => {
+          const category = button.dataset.filter;
+          filters.forEach((filter) => filter.setAttribute("aria-pressed", String(filter === button)));
+          posts.forEach((post) => {
+            post.hidden = category !== "all" && post.dataset.category !== category;
+          });
+        });
+      });
+
+      menuToggle.addEventListener("click", () => {
+        const isOpen = nav.classList.toggle("open");
+        menuToggle.setAttribute("aria-expanded", String(isOpen));
+        menuToggle.setAttribute("aria-label", isOpen ? "Close navigation" : "Open navigation");
+        menuToggle.textContent = isOpen ? "×" : "☰";
+      });
+
+      nav.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          nav.classList.remove("open");
+          menuToggle.setAttribute("aria-expanded", "false");
+          menuToggle.setAttribute("aria-label", "Open navigation");
+          menuToggle.textContent = "☰";
+        });
+      });
+
+      document.querySelector("#newsletter-form").addEventListener("submit", (event) => {
+        event.preventDefault();
+        toast.textContent = "Thanks for stopping by. Newsletter sign-up will be available soon.";
+        toast.classList.add("show");
+        event.currentTarget.reset();
+        window.setTimeout(() => toast.classList.remove("show"), 4000);
+      });
+    </script>
+  </body>
+</html>
